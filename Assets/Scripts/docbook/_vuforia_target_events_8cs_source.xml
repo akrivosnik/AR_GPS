@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__vuforia_target_events_8cs_source" xml:lang="en-US">
+<title>VuforiaTargetEvents.cs</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__vuforia_target_events_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>Vuforia;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis>System;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00004"/>00004 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00012"/>00012 [RequireComponent(typeof(<link linkend="_class_vuforia_manager">VuforiaManager</link>))]
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00013"/><link linkend="_class_vuforia_target_events">00013</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_vuforia_target_events">VuforiaTargetEvents</link>&#32;:&#32;MonoBehaviour
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00014"/>00014 {
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00019"/><link linkend="_class_vuforia_target_events_1abf0fc0c7b8fce37304d8f9641d30da11">00019</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">event</emphasis>&#32;Action&lt;ObserverBehaviour&gt;&#32;<link linkend="_class_vuforia_target_events_1abf0fc0c7b8fce37304d8f9641d30da11">OnTargetFound</link>;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00024"/><link linkend="_class_vuforia_target_events_1af8c2a5303bb9b9e354786391f2b43126">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">event</emphasis>&#32;Action&lt;ObserverBehaviour&gt;&#32;<link linkend="_class_vuforia_target_events_1af8c2a5303bb9b9e354786391f2b43126">OnTargetLost</link>;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00029"/><link linkend="_class_vuforia_target_events_1a0b2fbca103dcc52bd25508fdf8264009">00029</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">event</emphasis>&#32;Action&lt;ObserverBehaviour,&#32;TargetStatus&gt;&#32;<link linkend="_class_vuforia_target_events_1a0b2fbca103dcc52bd25508fdf8264009">OnTargetUpdated</link>;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00034"/><link linkend="_class_vuforia_target_events_1a2933670120b112edd4f4d7b74224449d">00034</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">event</emphasis>&#32;Action&lt;ObserverBehaviour,&#32;TargetStatus,&#32;TargetStatus&gt;&#32;<link linkend="_class_vuforia_target_events_1a2933670120b112edd4f4d7b74224449d">OnTargetStatusChanged</link>;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00035"/>00035 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;TargetStatus&#32;previousStatus;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00041"/>00041 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Start()
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;observer&#32;=&#32;FindAnyObjectByType&lt;ObserverBehaviour&gt;();
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00049"/>00049 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00050"/>00050 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousStatus&#32;=&#32;observer.TargetStatus;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;observer.OnTargetStatusChanged&#32;+=&#32;HandleTargetStatusChanged;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00053"/>00053 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00055"/>00055 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;OnDestroy()
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;observer&#32;=&#32;GetComponent&lt;ObserverBehaviour&gt;();
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(observer&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;observer.OnTargetStatusChanged&#32;-=&#32;HandleTargetStatusChanged;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00068"/>00068 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;HandleTargetStatusChanged(ObserverBehaviour&#32;behaviour,&#32;TargetStatus&#32;status)
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;OnTargetStatusChanged&#32;(previous,&#32;new)</emphasis>
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_target_events_1a2933670120b112edd4f4d7b74224449d">OnTargetStatusChanged</link>?.Invoke(behaviour,&#32;previousStatus,&#32;status);
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00080"/>00080 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;OnTargetFound</emphasis>
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((previousStatus.Status&#32;==&#32;Status.NO_POSE)&#32;&amp;&amp;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(status.Status&#32;==&#32;Status.TRACKED&#32;||&#32;status.Status&#32;==&#32;Status.EXTENDED_TRACKED))
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_target_events_1abf0fc0c7b8fce37304d8f9641d30da11">OnTargetFound</link>?.Invoke(behaviour);
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;OnTargetLost</emphasis>
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;((previousStatus.Status&#32;==&#32;Status.TRACKED&#32;||&#32;previousStatus.Status&#32;==&#32;Status.EXTENDED_TRACKED)&#32;&amp;&amp;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status.Status&#32;==&#32;Status.NO_POSE)
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_target_events_1af8c2a5303bb9b9e354786391f2b43126">OnTargetLost</link>?.Invoke(behaviour);
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00093"/>00093 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;OnTargetUpdated</emphasis>
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_target_events_1a0b2fbca103dcc52bd25508fdf8264009">OnTargetUpdated</link>?.Invoke(behaviour,&#32;status);
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00096"/>00096 
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousStatus&#32;=&#32;status;
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_target_events_8cs_source_1l00099"/>00099 }
+</programlisting></section>

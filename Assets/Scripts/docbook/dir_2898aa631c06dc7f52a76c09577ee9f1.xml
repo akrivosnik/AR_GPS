@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_2898aa631c06dc7f52a76c09577ee9f1" xml:lang="en-US">
+<title>Data Classes/Editor Directory Reference</title>
+<indexterm><primary>Data Classes/Editor Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__places_ofinterest_editor_8cs">PlacesOfinterestEditor.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

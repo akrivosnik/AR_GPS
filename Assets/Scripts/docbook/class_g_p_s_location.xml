@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_g_p_s_location" xml:lang="en-US">
+<title>GPSLocation Class Reference</title>
+<indexterm><primary>GPSLocation</primary></indexterm>
+<para>
+
+<para>This MonoBehaviour is responsible for accessing the device&apos;s GPS hardware and retrieving the current geographic coordinates (latitude and longitude). It requests location permissions at runtime (especially on Android), starts the location service, and continuously updates the coordinates. The script also synchronizes the retrieved GPS data with the <link linkend="_class_game_manager">GameManager</link>, enabling location-based logic such as proximity detection and AR content placement. This component is essential for any AR application that relies on real-world positioning, such as tourism guides or location-based games. </para>
+ 
+</para>
+<para>Inheritance diagram for GPSLocation:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_g_p_s_location.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>float <link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link></para>
+
+<para>The most recently retrieved latitude value from the device&apos;s GPS sensor. This value is updated every frame while the location service is running. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link></para>
+
+<para>The most recently retrieved longitude value from the device&apos;s GPS sensor. This value is updated every frame while the location service is running. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This MonoBehaviour is responsible for accessing the device&apos;s GPS hardware and retrieving the current geographic coordinates (latitude and longitude). It requests location permissions at runtime (especially on Android), starts the location service, and continuously updates the coordinates. The script also synchronizes the retrieved GPS data with the <link linkend="_class_game_manager">GameManager</link>, enabling location-based logic such as proximity detection and AR content placement. This component is essential for any AR application that relies on real-world positioning, such as tourism guides or location-based games. </para>
+<para>
+Definition at line <link linkend="__g_p_s_location_8cs_source_1l00010">10</link> of file <link linkend="__g_p_s_location_8cs_source">GPSLocation.cs</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52"/><section>
+    <title>latitude</title>
+<indexterm><primary>latitude</primary><secondary>GPSLocation</secondary></indexterm>
+<indexterm><primary>GPSLocation</primary><secondary>latitude</secondary></indexterm>
+<para><computeroutput>float GPSLocation.latitude</computeroutput></para><para>
+
+<para>The most recently retrieved latitude value from the device&apos;s GPS sensor. This value is updated every frame while the location service is running. </para>
+</para>
+<para>
+Definition at line <link linkend="__g_p_s_location_8cs_source_1l00016">16</link> of file <link linkend="__g_p_s_location_8cs_source">GPSLocation.cs</link>.</para>
+</section>
+<anchor xml:id="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf"/><section>
+    <title>longitude</title>
+<indexterm><primary>longitude</primary><secondary>GPSLocation</secondary></indexterm>
+<indexterm><primary>GPSLocation</primary><secondary>longitude</secondary></indexterm>
+<para><computeroutput>float GPSLocation.longitude</computeroutput></para><para>
+
+<para>The most recently retrieved longitude value from the device&apos;s GPS sensor. This value is updated every frame while the location service is running. </para>
+</para>
+<para>
+Definition at line <link linkend="__g_p_s_location_8cs_source_1l00022">22</link> of file <link linkend="__g_p_s_location_8cs_source">GPSLocation.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__g_p_s_location_8cs">GPSLocation.cs</link></section>
+</section>

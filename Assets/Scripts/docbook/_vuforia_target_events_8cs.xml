@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__vuforia_target_events_8cs" xml:lang="en-US">
+<title>VuforiaTargetEvents.cs File Reference</title>
+<indexterm><primary>VuforiaTargetEvents.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_vuforia_target_events">VuforiaTargetEvents</link></para>
+
+<para>This MonoBehaviour acts as an event dispatcher for Vuforia target status changes. It listens for changes in the tracking status of Vuforia ObserverBehaviours (such as Image Targets or Model Targets) and exposes these changes as C# events that other scripts can subscribe to. This enables decoupled and modular handling of AR target detection, loss, and updates, which is essential for building interactive AR experiences where UI or logic must respond to target visibility. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

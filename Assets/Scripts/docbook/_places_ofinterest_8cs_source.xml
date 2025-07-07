@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__places_ofinterest_8cs_source" xml:lang="en-US">
+<title>PlacesOfinterest.cs</title>
+<indexterm><primary>Data Classes/PlacesOfinterest.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__places_ofinterest_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>System.Collections.Generic;
+<anchor xml:id="__places_ofinterest_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__places_ofinterest_8cs_source_1l00003"/>00003 
+<anchor xml:id="__places_ofinterest_8cs_source_1l00011"/>00011 [CreateAssetMenu(fileName&#32;=&#32;<emphasis role="stringliteral">&quot;Empty&#32;Data&quot;</emphasis>,&#32;menuName&#32;=&#32;<emphasis role="stringliteral">&quot;Places&#32;Of&#32;interest&quot;</emphasis>)]
+<anchor xml:id="__places_ofinterest_8cs_source_1l00012"/><link linkend="_class_places_ofinterest">00012</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_places_ofinterest">PlacesOfinterest</link>&#32;:&#32;ScriptableObject
+<anchor xml:id="__places_ofinterest_8cs_source_1l00013"/>00013 {
+<anchor xml:id="__places_ofinterest_8cs_source_1l00018"/><link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;List&lt;PlaceOfinterest&gt;&#32;<link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">placesOfInterest</link>&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;List&lt;PlaceOfinterest&gt;();
+<anchor xml:id="__places_ofinterest_8cs_source_1l00019"/>00019 
+<anchor xml:id="__places_ofinterest_8cs_source_1l00025"/><link linkend="_class_places_ofinterest_1a6c7f5b5c7125ffe495a1778ccd0ea449">00025</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_places_ofinterest_1a6c7f5b5c7125ffe495a1778ccd0ea449">AddPlace</link>(<link linkend="_class_place_ofinterest">PlaceOfinterest</link>&#32;place)
+<anchor xml:id="__places_ofinterest_8cs_source_1l00026"/>00026 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__places_ofinterest_8cs_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(place&#32;!=&#32;<emphasis role="keyword">null</emphasis>&#32;&amp;&amp;&#32;!<link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">placesOfInterest</link>.Contains(place))
+<anchor xml:id="__places_ofinterest_8cs_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__places_ofinterest_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">placesOfInterest</link>.Add(place);
+<anchor xml:id="__places_ofinterest_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__places_ofinterest_8cs_source_1l00031"/>00031 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__places_ofinterest_8cs_source_1l00032"/>00032 
+<anchor xml:id="__places_ofinterest_8cs_source_1l00038"/><link linkend="_class_places_ofinterest_1a6c278ce21f4ecb5e9b3abd8aabf66e3c">00038</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_places_ofinterest_1a6c278ce21f4ecb5e9b3abd8aabf66e3c">RemovePlace</link>(<link linkend="_class_place_ofinterest">PlaceOfinterest</link>&#32;place)
+<anchor xml:id="__places_ofinterest_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__places_ofinterest_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(place&#32;!=&#32;<emphasis role="keyword">null</emphasis>&#32;&amp;&amp;&#32;<link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">placesOfInterest</link>.Contains(place))
+<anchor xml:id="__places_ofinterest_8cs_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__places_ofinterest_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">placesOfInterest</link>.Remove(place);
+<anchor xml:id="__places_ofinterest_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__places_ofinterest_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__places_ofinterest_8cs_source_1l00045"/>00045 
+<anchor xml:id="__places_ofinterest_8cs_source_1l00053"/><link linkend="_class_places_ofinterest_1afae9a45d9ce94afca168b53f19e4e642">00053</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_place_ofinterest">PlaceOfinterest</link>&#32;<link linkend="_class_places_ofinterest_1afae9a45d9ce94afca168b53f19e4e642">GetPlaceByName</link>(<emphasis role="keywordtype">string</emphasis>&#32;name)
+<anchor xml:id="__places_ofinterest_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__places_ofinterest_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_places_ofinterest_1ab54528d2d99647d037773478c71baa13">placesOfInterest</link>.Find(place&#32;=&gt;&#32;place.Name&#32;==&#32;name);
+<anchor xml:id="__places_ofinterest_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__places_ofinterest_8cs_source_1l00057"/>00057 }
+</programlisting></section>

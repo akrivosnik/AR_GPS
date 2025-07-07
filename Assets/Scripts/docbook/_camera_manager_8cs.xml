@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__camera_manager_8cs" xml:lang="en-US">
+<title>CameraManager.cs File Reference</title>
+<indexterm><primary>CameraManager.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_camera_manager">CameraManager</link></para>
+
+<para>The <link linkend="_class_camera_manager">CameraManager</link> MonoBehaviour is responsible for dynamically positioning and orienting the main camera in relation to the CesiumGlobeAnchor. This script ensures that the camera maintains a consistent height above the anchor&apos;s position and is oriented to look directly down at the anchor. Such functionality is essential in AR and mapping applications where the camera must follow or focus on a specific geospatial location, providing users with an intuitive and context-aware view of the virtual environment. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__game_manager_8cs" xml:lang="en-US">
+<title>GameManager.cs File Reference</title>
+<indexterm><primary>GameManager.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_game_manager">GameManager</link></para>
+
+<para>The <link linkend="_class_game_manager">GameManager</link> class is a singleton MonoBehaviour that acts as the central controller for the application&apos;s global state and logic. It manages references to key components such as the CesiumGlobeAnchor (for geospatial AR placement), the current GPS coordinates, the collection of places of interest, and UI elements. The <link linkend="_class_game_manager">GameManager</link> is responsible for orchestrating proximity checks between the user&apos;s location and stored places, updating UI elements, handling scene transitions, and synchronizing geocoded data. This class demonstrates best practices for centralized state management in Unity-based AR tourism applications, enabling modularity and scalability. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

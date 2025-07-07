@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_a7fb14a4dee3c56a5ddd39c9783db5ce" xml:lang="en-US">
+<title>Data Classes Directory Reference</title>
+<indexterm><primary>Data Classes Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_2898aa631c06dc7f52a76c09577ee9f1">Editor</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__place_ofinterest_8cs">PlaceOfinterest.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__places_ofinterest_8cs">PlacesOfinterest.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

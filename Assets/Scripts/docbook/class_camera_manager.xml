@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_camera_manager" xml:lang="en-US">
+<title>CameraManager Class Reference</title>
+<indexterm><primary>CameraManager</primary></indexterm>
+<para>
+
+<para>The <link linkend="_class_camera_manager">CameraManager</link> MonoBehaviour is responsible for dynamically positioning and orienting the main camera in relation to the CesiumGlobeAnchor. This script ensures that the camera maintains a consistent height above the anchor&apos;s position and is oriented to look directly down at the anchor. Such functionality is essential in AR and mapping applications where the camera must follow or focus on a specific geospatial location, providing users with an intuitive and context-aware view of the virtual environment. </para>
+ 
+</para>
+<para>Inheritance diagram for CameraManager:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_camera_manager.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>float <link linkend="_class_camera_manager_1a3e479ee93de0a5d3f3f8fbf6ff52896c">heightOffset</link> = 200f</para>
+
+<para>The vertical offset (in meters) above the CesiumGlobeAnchor at which the camera should be positioned. This allows for adjustable camera elevation to suit different visualization needs. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The <link linkend="_class_camera_manager">CameraManager</link> MonoBehaviour is responsible for dynamically positioning and orienting the main camera in relation to the CesiumGlobeAnchor. This script ensures that the camera maintains a consistent height above the anchor&apos;s position and is oriented to look directly down at the anchor. Such functionality is essential in AR and mapping applications where the camera must follow or focus on a specific geospatial location, providing users with an intuitive and context-aware view of the virtual environment. </para>
+<para>
+Definition at line <link linkend="__camera_manager_8cs_source_1l00010">10</link> of file <link linkend="__camera_manager_8cs_source">CameraManager.cs</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_camera_manager_1a3e479ee93de0a5d3f3f8fbf6ff52896c"/><section>
+    <title>heightOffset</title>
+<indexterm><primary>heightOffset</primary><secondary>CameraManager</secondary></indexterm>
+<indexterm><primary>CameraManager</primary><secondary>heightOffset</secondary></indexterm>
+<para><computeroutput>float CameraManager.heightOffset = 200f</computeroutput></para><para>
+
+<para>The vertical offset (in meters) above the CesiumGlobeAnchor at which the camera should be positioned. This allows for adjustable camera elevation to suit different visualization needs. </para>
+</para>
+<para>
+Definition at line <link linkend="__camera_manager_8cs_source_1l00016">16</link> of file <link linkend="__camera_manager_8cs_source">CameraManager.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__camera_manager_8cs">CameraManager.cs</link></section>
+</section>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__a_r_u_i_8cs_source" xml:lang="en-US">
+<title>ARUI.cs</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__a_r_u_i_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__a_r_u_i_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>UnityEngine.UI;
+<anchor xml:id="__a_r_u_i_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis>TMPro;
+<anchor xml:id="__a_r_u_i_8cs_source_1l00004"/>00004 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00010"/><link linkend="_class_a_r_u_i">00010</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_a_r_u_i">ARUI</link>&#32;:&#32;MonoBehaviour
+<anchor xml:id="__a_r_u_i_8cs_source_1l00011"/>00011 {
+<anchor xml:id="__a_r_u_i_8cs_source_1l00016"/><link linkend="_class_a_r_u_i_1a68c7c038a4dd3dc8b436af00775162d0">00016</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Button&#32;<link linkend="_class_a_r_u_i_1a68c7c038a4dd3dc8b436af00775162d0">MapButton</link>;&#32;<emphasis role="comment">//&#32;Reference&#32;to&#32;the&#32;Map&#32;button</emphasis>
+<anchor xml:id="__a_r_u_i_8cs_source_1l00017"/>00017 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00018"/>00018 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00019"/>00019 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00020"/><link linkend="_class_a_r_u_i_1aa2076728cf947febd7c8ec5de656a93c">00020</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;TextMeshProUGUI&#32;<link linkend="_class_a_r_u_i_1aa2076728cf947febd7c8ec5de656a93c">PlaceName</link>;&#32;<emphasis role="comment">//&#32;Reference&#32;to&#32;the&#32;Map&#32;button&#32;text</emphasis>
+<anchor xml:id="__a_r_u_i_8cs_source_1l00021"/><link linkend="_class_a_r_u_i_1afb66f9014d1ebfc1d516ae50c82addcb">00021</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;TextMeshProUGUI&#32;<link linkend="_class_a_r_u_i_1afb66f9014d1ebfc1d516ae50c82addcb">PlaceDescription</link>;&#32;<emphasis role="comment">//&#32;Reference&#32;to&#32;the&#32;Map&#32;button&#32;description</emphasis>
+<anchor xml:id="__a_r_u_i_8cs_source_1l00022"/>00022 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00023"/>00023 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00024"/>00024 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Start()&#32;=&gt;&#32;StartCoroutine(SetupMapButton());
+<anchor xml:id="__a_r_u_i_8cs_source_1l00031"/>00031 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;System.Collections.IEnumerator&#32;SetupMapButton()
+<anchor xml:id="__a_r_u_i_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__a_r_u_i_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;WaitForSeconds(0.1f);
+<anchor xml:id="__a_r_u_i_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_a_r_u_i_1a68c7c038a4dd3dc8b436af00775162d0">MapButton</link>.onClick.AddListener(()&#32;=&gt;&#32;<link linkend="_class_game_manager">GameManager</link>.<link linkend="_class_game_manager_1ad3e717f4fb0f378b969f4457de81f23e">Instance</link>.<link linkend="_class_game_manager_1ad3f52e3103167a3dfc489c2597ad6f54">RemoveScene</link>(<emphasis role="stringliteral">&quot;AR&quot;</emphasis>));&#32;<emphasis role="comment">//&#32;Add&#32;listener&#32;to&#32;the&#32;Map&#32;button</emphasis>
+<anchor xml:id="__a_r_u_i_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__a_r_u_i_8cs_source_1l00037"/>00037 
+<anchor xml:id="__a_r_u_i_8cs_source_1l00038"/>00038 }
+</programlisting></section>

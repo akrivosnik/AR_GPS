@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>My Project</title>
+    </info>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class_a_r_u_i.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_camera_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_game_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_geocode_address.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_geocode_address_1_1_geocode_result.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_g_p_s_location.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_place_ofinterest.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_places_ofinterest.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_places_ofinterest_editor.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_serialization_wrapper-1-g.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_vuforia_manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_vuforia_target_events.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="_a_r_u_i_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_a_r_u_i_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_camera_manager_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_camera_manager_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_places_ofinterest_editor_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_places_ofinterest_editor_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_place_ofinterest_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_place_ofinterest_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_places_ofinterest_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_places_ofinterest_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_game_manager_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_game_manager_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_geocode_address_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_geocode_address_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_g_p_s_location_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_g_p_s_location_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_vuforia_manager_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_vuforia_manager_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_vuforia_target_events_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_vuforia_target_events_8cs_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_geocode_address_1_1_geocode_result" xml:lang="en-US">
+<title>GeocodeAddress.GeocodeResult Class Reference</title>
+<indexterm><primary>GeocodeAddress.GeocodeResult</primary></indexterm>
+<para>
+
+<para>Represents a single geocoding result returned by the Nominatim API. Each result contains latitude and longitude as strings, which are parsed into floats for use in the application. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_geocode_address_1_1_geocode_result_1aa59414a7ced535c78e92ab452cae675f">lat</link></para>
+
+<para>The latitude value as a string, as returned by the API. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_geocode_address_1_1_geocode_result_1aecb360166804a7799660ab68a2fabde1">lon</link></para>
+
+<para>The longitude value as a string, as returned by the API. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents a single geocoding result returned by the Nominatim API. Each result contains latitude and longitude as strings, which are parsed into floats for use in the application. </para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00102">102</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_geocode_address_1_1_geocode_result_1aa59414a7ced535c78e92ab452cae675f"/><section>
+    <title>lat</title>
+<indexterm><primary>lat</primary><secondary>GeocodeAddress.GeocodeResult</secondary></indexterm>
+<indexterm><primary>GeocodeAddress.GeocodeResult</primary><secondary>lat</secondary></indexterm>
+<para><computeroutput>string GeocodeAddress.GeocodeResult.lat</computeroutput></para><para>
+
+<para>The latitude value as a string, as returned by the API. </para>
+</para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00107">107</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<anchor xml:id="_class_geocode_address_1_1_geocode_result_1aecb360166804a7799660ab68a2fabde1"/><section>
+    <title>lon</title>
+<indexterm><primary>lon</primary><secondary>GeocodeAddress.GeocodeResult</secondary></indexterm>
+<indexterm><primary>GeocodeAddress.GeocodeResult</primary><secondary>lon</secondary></indexterm>
+<para><computeroutput>string GeocodeAddress.GeocodeResult.lon</computeroutput></para><para>
+
+<para>The longitude value as a string, as returned by the API. </para>
+</para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00111">111</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__geocode_address_8cs">GeocodeAddress.cs</link></section>
+</section>

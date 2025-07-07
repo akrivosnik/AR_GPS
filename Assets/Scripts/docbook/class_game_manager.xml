@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_game_manager" xml:lang="en-US">
+<title>GameManager Class Reference</title>
+<indexterm><primary>GameManager</primary></indexterm>
+<para>
+
+<para>The <link linkend="_class_game_manager">GameManager</link> class is a singleton MonoBehaviour that acts as the central controller for the application&apos;s global state and logic. It manages references to key components such as the CesiumGlobeAnchor (for geospatial AR placement), the current GPS coordinates, the collection of places of interest, and UI elements. The <link linkend="_class_game_manager">GameManager</link> is responsible for orchestrating proximity checks between the user&apos;s location and stored places, updating UI elements, handling scene transitions, and synchronizing geocoded data. This class demonstrates best practices for centralized state management in Unity-based AR tourism applications, enabling modularity and scalability. </para>
+ 
+</para>
+<para>Inheritance diagram for GameManager:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_game_manager.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_game_manager_1aeb7d36874b456e3473d1f4d5d491465b">UpdateButtonUI</link> (<link linkend="_class_place_ofinterest">PlaceOfinterest</link> placeOfinterest)</para>
+
+<para>Updates the UI button or label to display the name of the currently active place of interest. This method is typically called in response to proximity changes or user selection. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_game_manager_1a181d16fae092301164c2583908b68134">NavigateToPlace</link> (<link linkend="_class_place_ofinterest">PlaceOfinterest</link> place)</para>
+
+<para>Updates the CesiumGlobeAnchor and current coordinates to navigate to a specific place of interest. This method is used to reposition AR content or the camera based on user selection or navigation requests. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_game_manager_1a6d7ebb511111848b41e3226904bcadc4">AddScene</link> (string sceneName)</para>
+
+<para>Loads a new Unity scene additively by its name and hides the map pin. This method is used to transition to AR or detail scenes while preserving the main scene context. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_game_manager_1ad3f52e3103167a3dfc489c2597ad6f54">RemoveScene</link> (string sceneName)</para>
+
+<para>Unloads a Unity scene by its name and shows the map pin. This method is used to return from AR or detail scenes to the main map or overview scene. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>CesiumGlobeAnchor <link linkend="_class_game_manager_1a6780e0cfe3f30aed5e185a07d66d3d29">cesiumGlobeAnchor</link></para>
+
+<para>Reference to the CesiumGlobeAnchor component, which is used to anchor virtual content to real-world geospatial coordinates. This enables accurate placement of AR objects based on latitude, longitude, and height. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_game_manager_1af1e12dc24c8a1722629167e148e3db58">currentLatitude</link> = 37.7749f</para>
+
+<para>The current latitude value, typically updated by the <link linkend="_class_g_p_s_location">GPSLocation</link> component. This value is used for proximity calculations and AR content placement. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_game_manager_1ab99a209b12ee453b907fd4001d433459">currentLongitude</link> = -122.4194f</para>
+
+<para>The current longitude value, typically updated by the <link linkend="_class_g_p_s_location">GPSLocation</link> component. This value is used for proximity calculations and AR content placement. </para>
+</listitem>
+            <listitem><para><link linkend="_class_place_ofinterest">PlaceOfinterest</link> <link linkend="_class_game_manager_1ab68cf3d8fb287f8c128bb0a9cdcd8683">loacalPlaceOfInterest</link></para>
+
+<para>Reference to the currently active or nearby place of interest. This field is updated when the user is within a certain distance of a stored place. </para>
+</listitem>
+            <listitem><para><link linkend="_class_places_ofinterest">PlacesOfinterest</link> <link linkend="_class_game_manager_1ab3335aeba70b15a6975dcdc172e4511b">placesOfinterest</link></para>
+
+<para>Reference to the ScriptableObject containing the collection of all places of interest. This enables centralized management and querying of location data. </para>
+</listitem>
+            <listitem><para><link linkend="_class_geocode_address">GeocodeAddress</link> <link linkend="_class_game_manager_1a8d1169d6c8bcc915be519ca7d368b2fd">geocodeAddress</link></para>
+
+<para>Reference to the <link linkend="_class_geocode_address">GeocodeAddress</link> component, used for converting addresses to coordinates. This enables dynamic updating of place data based on user input or external sources. </para>
+</listitem>
+            <listitem><para>Action&lt; <link linkend="_class_place_ofinterest">PlaceOfinterest</link> &gt; <link linkend="_class_game_manager_1a65a3fdf0f709bf5da4cb5e340d88ae0c">OnPlaceOfInterestUpdated</link></para>
+
+<para>Event invoked whenever the currently active place of interest is updated. Other components can subscribe to this event to react to changes in proximity or selection. </para>
+</listitem>
+            <listitem><para>TextMeshProUGUI <link linkend="_class_game_manager_1aff64e7334e810ea0e5ad4ffb1e5b4ef1">placeNameText</link></para>
+
+<para>Reference to the TextMeshProUGUI component used to display the name of the current place of interest in the UI. </para>
+</listitem>
+            <listitem><para>GameObject <link linkend="_class_game_manager_1a708fe1ba365c944d97b4831f70fa0380">pin</link></para>
+
+<para>Reference to the GameObject representing the map pin or marker in the scene. This object is shown or hidden based on scene transitions and user interactions. </para>
+</listitem>
+            <listitem><para>GameObject <link linkend="_class_game_manager_1af2f287c61e8c4e6306a386fa9ef5a099">arPanel</link></para>
+
+<para>Reference to the GameObject representing the AR panel UI. This panel is activated when the user is near a place of interest and deactivated otherwise. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_game_manager">GameManager</link> <link linkend="_class_game_manager_1ad3e717f4fb0f378b969f4457de81f23e">Instance</link><computeroutput> [get]</computeroutput>
+</para>
+
+<para>Singleton instance of the <link linkend="_class_game_manager">GameManager</link>, ensuring only one instance exists throughout the application&apos;s lifecycle. This pattern facilitates global access to game state and logic. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The <link linkend="_class_game_manager">GameManager</link> class is a singleton MonoBehaviour that acts as the central controller for the application&apos;s global state and logic. It manages references to key components such as the CesiumGlobeAnchor (for geospatial AR placement), the current GPS coordinates, the collection of places of interest, and UI elements. The <link linkend="_class_game_manager">GameManager</link> is responsible for orchestrating proximity checks between the user&apos;s location and stored places, updating UI elements, handling scene transitions, and synchronizing geocoded data. This class demonstrates best practices for centralized state management in Unity-based AR tourism applications, enabling modularity and scalability. </para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00015">15</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_game_manager_1a6d7ebb511111848b41e3226904bcadc4"/><section>
+    <title>AddScene()</title>
+<indexterm><primary>AddScene</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>AddScene</secondary></indexterm>
+<para><computeroutput>void GameManager.AddScene (string sceneName)</computeroutput></para><para>
+
+<para>Loads a new Unity scene additively by its name and hides the map pin. This method is used to transition to AR or detail scenes while preserving the main scene context. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sceneName</entry><entry>
+<para>The name of the scene to load.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00228">228</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1a181d16fae092301164c2583908b68134"/><section>
+    <title>NavigateToPlace()</title>
+<indexterm><primary>NavigateToPlace</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>NavigateToPlace</secondary></indexterm>
+<para><computeroutput>void GameManager.NavigateToPlace (<link linkend="_class_place_ofinterest">PlaceOfinterest</link> place)</computeroutput></para><para>
+
+<para>Updates the CesiumGlobeAnchor and current coordinates to navigate to a specific place of interest. This method is used to reposition AR content or the camera based on user selection or navigation requests. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>place</entry><entry>
+<para>The place of interest to navigate to.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00209">209</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1ad3f52e3103167a3dfc489c2597ad6f54"/><section>
+    <title>RemoveScene()</title>
+<indexterm><primary>RemoveScene</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>RemoveScene</secondary></indexterm>
+<para><computeroutput>void GameManager.RemoveScene (string sceneName)</computeroutput></para><para>
+
+<para>Unloads a Unity scene by its name and shows the map pin. This method is used to return from AR or detail scenes to the main map or overview scene. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sceneName</entry><entry>
+<para>The name of the scene to unload.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00240">240</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1aeb7d36874b456e3473d1f4d5d491465b"/><section>
+    <title>UpdateButtonUI()</title>
+<indexterm><primary>UpdateButtonUI</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>UpdateButtonUI</secondary></indexterm>
+<para><computeroutput>void GameManager.UpdateButtonUI (<link linkend="_class_place_ofinterest">PlaceOfinterest</link> placeOfinterest)</computeroutput></para><para>
+
+<para>Updates the UI button or label to display the name of the currently active place of interest. This method is typically called in response to proximity changes or user selection. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>placeOfinterest</entry><entry>
+<para>The place of interest to display in the UI.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00199">199</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_game_manager_1af2f287c61e8c4e6306a386fa9ef5a099"/><section>
+    <title>arPanel</title>
+<indexterm><primary>arPanel</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>arPanel</secondary></indexterm>
+<para><computeroutput>GameObject GameManager.arPanel</computeroutput></para><para>
+
+<para>Reference to the GameObject representing the AR panel UI. This panel is activated when the user is near a place of interest and deactivated otherwise. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00082">82</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1a6780e0cfe3f30aed5e185a07d66d3d29"/><section>
+    <title>cesiumGlobeAnchor</title>
+<indexterm><primary>cesiumGlobeAnchor</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>cesiumGlobeAnchor</secondary></indexterm>
+<para><computeroutput>CesiumGlobeAnchor GameManager.cesiumGlobeAnchor</computeroutput></para><para>
+
+<para>Reference to the CesiumGlobeAnchor component, which is used to anchor virtual content to real-world geospatial coordinates. This enables accurate placement of AR objects based on latitude, longitude, and height. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00021">21</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1af1e12dc24c8a1722629167e148e3db58"/><section>
+    <title>currentLatitude</title>
+<indexterm><primary>currentLatitude</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>currentLatitude</secondary></indexterm>
+<para><computeroutput>float GameManager.currentLatitude = 37.7749f</computeroutput></para><para>
+
+<para>The current latitude value, typically updated by the <link linkend="_class_g_p_s_location">GPSLocation</link> component. This value is used for proximity calculations and AR content placement. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00027">27</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1ab99a209b12ee453b907fd4001d433459"/><section>
+    <title>currentLongitude</title>
+<indexterm><primary>currentLongitude</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>currentLongitude</secondary></indexterm>
+<para><computeroutput>float GameManager.currentLongitude = -122.4194f</computeroutput></para><para>
+
+<para>The current longitude value, typically updated by the <link linkend="_class_g_p_s_location">GPSLocation</link> component. This value is used for proximity calculations and AR content placement. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00033">33</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1a8d1169d6c8bcc915be519ca7d368b2fd"/><section>
+    <title>geocodeAddress</title>
+<indexterm><primary>geocodeAddress</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>geocodeAddress</secondary></indexterm>
+<para><computeroutput><link linkend="_class_geocode_address">GeocodeAddress</link> GameManager.geocodeAddress</computeroutput></para><para>
+
+<para>Reference to the <link linkend="_class_geocode_address">GeocodeAddress</link> component, used for converting addresses to coordinates. This enables dynamic updating of place data based on user input or external sources. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00052">52</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1ab68cf3d8fb287f8c128bb0a9cdcd8683"/><section>
+    <title>loacalPlaceOfInterest</title>
+<indexterm><primary>loacalPlaceOfInterest</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>loacalPlaceOfInterest</secondary></indexterm>
+<para><computeroutput><link linkend="_class_place_ofinterest">PlaceOfinterest</link> GameManager.loacalPlaceOfInterest</computeroutput></para><para>
+
+<para>Reference to the currently active or nearby place of interest. This field is updated when the user is within a certain distance of a stored place. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00040">40</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1a65a3fdf0f709bf5da4cb5e340d88ae0c"/><section>
+    <title>OnPlaceOfInterestUpdated</title>
+<indexterm><primary>OnPlaceOfInterestUpdated</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>OnPlaceOfInterestUpdated</secondary></indexterm>
+<para><computeroutput>Action&lt;<link linkend="_class_place_ofinterest">PlaceOfinterest</link>&gt; GameManager.OnPlaceOfInterestUpdated</computeroutput></para><para>
+
+<para>Event invoked whenever the currently active place of interest is updated. Other components can subscribe to this event to react to changes in proximity or selection. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00064">64</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1a708fe1ba365c944d97b4831f70fa0380"/><section>
+    <title>pin</title>
+<indexterm><primary>pin</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>pin</secondary></indexterm>
+<para><computeroutput>GameObject GameManager.pin</computeroutput></para><para>
+
+<para>Reference to the GameObject representing the map pin or marker in the scene. This object is shown or hidden based on scene transitions and user interactions. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00076">76</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1aff64e7334e810ea0e5ad4ffb1e5b4ef1"/><section>
+    <title>placeNameText</title>
+<indexterm><primary>placeNameText</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>placeNameText</secondary></indexterm>
+<para><computeroutput>TextMeshProUGUI GameManager.placeNameText</computeroutput></para><para>
+
+<para>Reference to the TextMeshProUGUI component used to display the name of the current place of interest in the UI. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00070">70</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_game_manager_1ab3335aeba70b15a6975dcdc172e4511b"/><section>
+    <title>placesOfinterest</title>
+<indexterm><primary>placesOfinterest</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>placesOfinterest</secondary></indexterm>
+<para><computeroutput><link linkend="_class_places_ofinterest">PlacesOfinterest</link> GameManager.placesOfinterest</computeroutput></para><para>
+
+<para>Reference to the ScriptableObject containing the collection of all places of interest. This enables centralized management and querying of location data. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00046">46</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_game_manager_1ad3e717f4fb0f378b969f4457de81f23e"/><section>
+    <title>Instance</title>
+<indexterm><primary>Instance</primary><secondary>GameManager</secondary></indexterm>
+<indexterm><primary>GameManager</primary><secondary>Instance</secondary></indexterm>
+<para><computeroutput><link linkend="_class_game_manager">GameManager</link> GameManager.Instance<computeroutput>[static]</computeroutput>, <computeroutput>[get]</computeroutput></computeroutput></para><para>
+
+<para>Singleton instance of the <link linkend="_class_game_manager">GameManager</link>, ensuring only one instance exists throughout the application&apos;s lifecycle. This pattern facilitates global access to game state and logic. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_manager_8cs_source_1l00058">58</link> of file <link linkend="__game_manager_8cs_source">GameManager.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__game_manager_8cs">GameManager.cs</link></section>
+</section>

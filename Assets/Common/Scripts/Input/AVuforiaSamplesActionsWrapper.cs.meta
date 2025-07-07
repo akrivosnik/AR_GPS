@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: fda8a86c90a434fcb9cc419b2d4f1f4d
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99026
+  packageName: Vuforia Core Samples
+  packageVersion: 11.2.4
+  assetPath: Assets/Common/Scripts/Input/AVuforiaSamplesActionsWrapper.cs
+  uploadId: 754461

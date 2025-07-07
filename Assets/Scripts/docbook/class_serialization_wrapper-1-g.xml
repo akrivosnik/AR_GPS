@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_serialization_wrapper-1-g" xml:lang="en-US">
+<title>SerializationWrapper&lt; T &gt; Class Template Reference</title>
+<indexterm><primary>SerializationWrapper&lt; T &gt;</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_serialization_wrapper-1-g_1ab3825a7756ea522d115a35cff728ef99">SerializationWrapper</link> (List&lt; T &gt; <link linkend="_class_serialization_wrapper-1-g_1aff48f57cefe70b47cebc4c7f21fc25f7">items</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>List&lt; T &gt; <link linkend="_class_serialization_wrapper-1-g_1aff48f57cefe70b47cebc4c7f21fc25f7">items</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="__places_ofinterest_editor_8cs_source_1l00358">358</link> of file <link linkend="__places_ofinterest_editor_8cs_source">PlacesOfinterestEditor.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_serialization_wrapper-1-g_1ab3825a7756ea522d115a35cff728ef99"/><section>
+    <title>SerializationWrapper()</title>
+<indexterm><primary>SerializationWrapper</primary><secondary>SerializationWrapper&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>SerializationWrapper&lt; T &gt;</primary><secondary>SerializationWrapper</secondary></indexterm>
+<para><computeroutput>SerializationWrapper&lt; T &gt;.SerializationWrapper (List&lt; T &gt; items)</computeroutput></para><para>
+Definition at line <link linkend="__places_ofinterest_editor_8cs_source_1l00361">361</link> of file <link linkend="__places_ofinterest_editor_8cs_source">PlacesOfinterestEditor.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_serialization_wrapper-1-g_1aff48f57cefe70b47cebc4c7f21fc25f7"/><section>
+    <title>items</title>
+<indexterm><primary>items</primary><secondary>SerializationWrapper&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>SerializationWrapper&lt; T &gt;</primary><secondary>items</secondary></indexterm>
+<para><computeroutput>List&lt;T&gt; <link linkend="_class_serialization_wrapper-1-g_1ab3825a7756ea522d115a35cff728ef99">SerializationWrapper</link>&lt; T &gt;.items</computeroutput></para><para>
+Definition at line <link linkend="__places_ofinterest_editor_8cs_source_1l00360">360</link> of file <link linkend="__places_ofinterest_editor_8cs_source">PlacesOfinterestEditor.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Data Classes/Editor/<link linkend="__places_ofinterest_editor_8cs">PlacesOfinterestEditor.cs</link></section>
+</section>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__places_ofinterest_editor_8cs" xml:lang="en-US">
+<title>Data Classes/Editor/PlacesOfinterestEditor.cs File Reference</title>
+<indexterm><primary>Data Classes/Editor/PlacesOfinterestEditor.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_places_ofinterest_editor">PlacesOfinterestEditor</link></para>
+
+<para>Custom Unity Editor inspector for the &quot;PlacesOfinterest&quot; ScriptableObject. This editor extension provides a user-friendly interface within the Unity Editor for managing a collection of places of interest. It allows designers and developers to add, edit, remove, and search for places directly from the Inspector window. The editor supports editing all properties of each place, including name, description, address, latitude, longitude, height, and an associated icon. This tool streamlines the workflow for content creation and data management in location-based AR applications. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_serialization_wrapper-1-g">SerializationWrapper&lt; T &gt;</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

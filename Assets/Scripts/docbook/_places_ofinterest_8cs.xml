@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__places_ofinterest_8cs" xml:lang="en-US">
+<title>Data Classes/PlacesOfinterest.cs File Reference</title>
+<indexterm><primary>Data Classes/PlacesOfinterest.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_places_ofinterest">PlacesOfinterest</link></para>
+
+<para>A Unity ScriptableObject that serves as a persistent data container for a collection of places of interest. This class is designed to be used as a centralized database for storing and managing multiple &quot;PlaceOfinterest&quot; entries, which represent real-world locations with associated metadata such as name, description, address, coordinates, and an icon. The ScriptableObject can be edited in the Unity Editor and referenced by other scripts at runtime, enabling efficient data-driven workflows for location-based AR or tourism applications. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

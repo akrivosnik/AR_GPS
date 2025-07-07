@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__place_ofinterest_8cs" xml:lang="en-US">
+<title>Data Classes/PlaceOfinterest.cs File Reference</title>
+<indexterm><primary>Data Classes/PlaceOfinterest.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_place_ofinterest">PlaceOfinterest</link></para>
+
+<para>A serializable data class that encapsulates all relevant information about a single place of interest. This class is intended to represent real-world locations in AR tourism or mapping applications, providing both geospatial coordinates and descriptive metadata for each location. Each instance can be stored in a &quot;PlacesOfinterest&quot; ScriptableObject and referenced at runtime. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

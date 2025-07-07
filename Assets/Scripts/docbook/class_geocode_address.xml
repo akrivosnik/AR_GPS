@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_geocode_address" xml:lang="en-US">
+<title>GeocodeAddress Class Reference</title>
+<indexterm><primary>GeocodeAddress</primary></indexterm>
+<para>
+
+<para>This MonoBehaviour provides geocoding functionality, allowing the application to convert a human-readable address string into precise geographic coordinates (latitude and longitude) using the OpenStreetMap Nominatim API. It is designed to be used both at runtime and in the Unity Editor for data entry and validation. The script demonstrates how to perform asynchronous web requests, parse JSON responses, and integrate third-party geocoding services into Unity. </para>
+ 
+</para>
+<para>Inheritance diagram for GeocodeAddress:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_geocode_address.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_geocode_address_1_1_geocode_result">GeocodeResult</link></para>
+
+<para>Represents a single geocoding result returned by the Nominatim API. Each result contains latitude and longitude as strings, which are parsed into floats for use in the application. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">JsonHelper</emphasis></para>
+
+<para>Static helper class for parsing JSON arrays using Unity&apos;s JsonUtility. Since JsonUtility does not natively support top-level arrays, this class wraps the array in an object for parsing. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_geocode_address_1a6dca4c599f18015f6adc7e0bda06ef47">SearchAddress</link> (string address)</para>
+
+<para>Initiates the geocoding process for the specified address. This method starts a coroutine that sends a request to the Nominatim API and processes the response. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_geocode_address_1ae7f59a6fba8883eae5cbb5b60e3ddb85">addressInput</link> = &quot;&quot;</para>
+
+<para>The address string to be geocoded. This field is typically set via the Unity Editor or by other scripts. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">resultText</link> = &quot;&quot;</para>
+
+<para>The result of the geocoding operation, formatted as a string for display in the UI or editor. This field is updated after each geocoding request. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_geocode_address_1a9cd4ee0df93e38a629a98a8b12fc061e">latitude</link></para>
+
+<para>The latitude value obtained from the geocoding service. This value is set after a successful geocoding request and can be used for AR placement or map visualization. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_geocode_address_1acb893907edba8db4a433e20e5ea5c01e">longitude</link></para>
+
+<para>The longitude value obtained from the geocoding service. This value is set after a successful geocoding request and can be used for AR placement or map visualization. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This MonoBehaviour provides geocoding functionality, allowing the application to convert a human-readable address string into precise geographic coordinates (latitude and longitude) using the OpenStreetMap Nominatim API. It is designed to be used both at runtime and in the Unity Editor for data entry and validation. The script demonstrates how to perform asynchronous web requests, parse JSON responses, and integrate third-party geocoding services into Unity. </para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00012">12</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_geocode_address_1a6dca4c599f18015f6adc7e0bda06ef47"/><section>
+    <title>SearchAddress()</title>
+<indexterm><primary>SearchAddress</primary><secondary>GeocodeAddress</secondary></indexterm>
+<indexterm><primary>GeocodeAddress</primary><secondary>SearchAddress</secondary></indexterm>
+<para><computeroutput>void GeocodeAddress.SearchAddress (string address)</computeroutput></para><para>
+
+<para>Initiates the geocoding process for the specified address. This method starts a coroutine that sends a request to the Nominatim API and processes the response. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>address</entry><entry>
+<para>The address string to be converted into coordinates.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00042">42</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_geocode_address_1ae7f59a6fba8883eae5cbb5b60e3ddb85"/><section>
+    <title>addressInput</title>
+<indexterm><primary>addressInput</primary><secondary>GeocodeAddress</secondary></indexterm>
+<indexterm><primary>GeocodeAddress</primary><secondary>addressInput</secondary></indexterm>
+<para><computeroutput>string GeocodeAddress.addressInput = &quot;&quot;</computeroutput></para><para>
+
+<para>The address string to be geocoded. This field is typically set via the Unity Editor or by other scripts. </para>
+</para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00018">18</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<anchor xml:id="_class_geocode_address_1a9cd4ee0df93e38a629a98a8b12fc061e"/><section>
+    <title>latitude</title>
+<indexterm><primary>latitude</primary><secondary>GeocodeAddress</secondary></indexterm>
+<indexterm><primary>GeocodeAddress</primary><secondary>latitude</secondary></indexterm>
+<para><computeroutput>float GeocodeAddress.latitude</computeroutput></para><para>
+
+<para>The latitude value obtained from the geocoding service. This value is set after a successful geocoding request and can be used for AR placement or map visualization. </para>
+</para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00030">30</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<anchor xml:id="_class_geocode_address_1acb893907edba8db4a433e20e5ea5c01e"/><section>
+    <title>longitude</title>
+<indexterm><primary>longitude</primary><secondary>GeocodeAddress</secondary></indexterm>
+<indexterm><primary>GeocodeAddress</primary><secondary>longitude</secondary></indexterm>
+<para><computeroutput>float GeocodeAddress.longitude</computeroutput></para><para>
+
+<para>The longitude value obtained from the geocoding service. This value is set after a successful geocoding request and can be used for AR placement or map visualization. </para>
+</para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00035">35</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<anchor xml:id="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432"/><section>
+    <title>resultText</title>
+<indexterm><primary>resultText</primary><secondary>GeocodeAddress</secondary></indexterm>
+<indexterm><primary>GeocodeAddress</primary><secondary>resultText</secondary></indexterm>
+<para><computeroutput>string GeocodeAddress.resultText = &quot;&quot;</computeroutput></para><para>
+
+<para>The result of the geocoding operation, formatted as a string for display in the UI or editor. This field is updated after each geocoding request. </para>
+</para>
+<para>
+Definition at line <link linkend="__geocode_address_8cs_source_1l00024">24</link> of file <link linkend="__geocode_address_8cs_source">GeocodeAddress.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__geocode_address_8cs">GeocodeAddress.cs</link></section>
+</section>

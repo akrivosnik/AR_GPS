@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__geocode_address_8cs" xml:lang="en-US">
+<title>GeocodeAddress.cs File Reference</title>
+<indexterm><primary>GeocodeAddress.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_geocode_address">GeocodeAddress</link></para>
+
+<para>This MonoBehaviour provides geocoding functionality, allowing the application to convert a human-readable address string into precise geographic coordinates (latitude and longitude) using the OpenStreetMap Nominatim API. It is designed to be used both at runtime and in the Unity Editor for data entry and validation. The script demonstrates how to perform asynchronous web requests, parse JSON responses, and integrate third-party geocoding services into Unity. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_geocode_address_1_1_geocode_result">GeocodeAddress.GeocodeResult</link></para>
+
+<para>Represents a single geocoding result returned by the Nominatim API. Each result contains latitude and longitude as strings, which are parsed into floats for use in the application. </para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">GeocodeAddress.JsonHelper</emphasis></para>
+
+<para>Static helper class for parsing JSON arrays using Unity&apos;s JsonUtility. Since JsonUtility does not natively support top-level arrays, this class wraps the array in an object for parsing. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

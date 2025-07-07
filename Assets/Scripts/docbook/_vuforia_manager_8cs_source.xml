@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__vuforia_manager_8cs_source" xml:lang="en-US">
+<title>VuforiaManager.cs</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__vuforia_manager_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>Vuforia;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00003"/>00003 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00009"/><link linkend="_class_vuforia_manager">00009</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_vuforia_manager">VuforiaManager</link>&#32;:&#32;MonoBehaviour
+<anchor xml:id="__vuforia_manager_8cs_source_1l00010"/>00010 {
+<anchor xml:id="__vuforia_manager_8cs_source_1l00015"/><link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">00015</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ImageTargetBehaviour&#32;<link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">imageTargetBehaviour</link>;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00020"/><link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">00020</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;GameObject&#32;<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>;&#32;<emphasis role="comment">//&#32;Reference&#32;to&#32;the&#32;UI&#32;panel&#32;that&#32;displays&#32;target&#32;information</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00021"/>00021 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<link linkend="_class_vuforia_target_events">VuforiaTargetEvents</link>&#32;vuforiaTargetEvents;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00026"/>00026 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Start()
+<anchor xml:id="__vuforia_manager_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">imageTargetBehaviour</link>&#32;=&#32;FindAnyObjectByType&lt;ImageTargetBehaviour&gt;();
+<anchor xml:id="__vuforia_manager_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">imageTargetBehaviour</link>&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Add&#32;or&#32;get&#32;the&#32;VuforiaTargetEvents&#32;component</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vuforiaTargetEvents&#32;=&#32;<link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">imageTargetBehaviour</link>.GetComponent&lt;<link linkend="_class_vuforia_target_events">VuforiaTargetEvents</link>&gt;();
+<anchor xml:id="__vuforia_manager_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(vuforiaTargetEvents&#32;==&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vuforiaTargetEvents&#32;=&#32;<link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">imageTargetBehaviour</link>.gameObject.AddComponent&lt;<link linkend="_class_vuforia_target_events">VuforiaTargetEvents</link>&gt;();
+<anchor xml:id="__vuforia_manager_8cs_source_1l00041"/>00041 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Subscribe&#32;to&#32;target&#32;events</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vuforiaTargetEvents.OnTargetFound&#32;+=&#32;TargetFound;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vuforiaTargetEvents.OnTargetLost&#32;+=&#32;TargetLost;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optionally&#32;subscribe&#32;to&#32;OnTargetUpdated&#32;and&#32;OnTargetStatusChanged&#32;if&#32;needed</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.LogError(<emphasis role="stringliteral">&quot;ImageTargetBehaviour&#32;is&#32;not&#32;assigned&#32;in&#32;the&#32;inspector.&quot;</emphasis>);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00051"/>00051 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Ensure&#32;the&#32;target&#32;info&#32;panel&#32;is&#32;initially&#32;hidden</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>.SetActive(<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.LogError(<emphasis role="stringliteral">&quot;Target&#32;info&#32;panel&#32;is&#32;not&#32;assigned&#32;in&#32;the&#32;inspector.&quot;</emphasis>);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00062"/>00062 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;OnDestroy()
+<anchor xml:id="__vuforia_manager_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(vuforiaTargetEvents&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vuforiaTargetEvents.OnTargetFound&#32;-=&#32;TargetFound;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vuforiaTargetEvents.OnTargetLost&#32;-=&#32;TargetLost;
+<anchor xml:id="__vuforia_manager_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00075"/>00075 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;TargetFound(ObserverBehaviour&#32;observer)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Display&#32;the&#32;target&#32;information&#32;panel&#32;when&#32;a&#32;target&#32;is&#32;found</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>.SetActive(<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00086"/>00086 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optionally,&#32;log&#32;or&#32;use&#32;observer.TargetName&#32;if&#32;needed</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Target&#32;found:&#32;&quot;</emphasis>&#32;+&#32;observer.TargetName);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00090"/>00090 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00096"/>00096 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;TargetLost(ObserverBehaviour&#32;observer)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00097"/>00097 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__vuforia_manager_8cs_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Hide&#32;the&#32;target&#32;information&#32;panel&#32;when&#32;a&#32;target&#32;is&#32;lost</emphasis>
+<anchor xml:id="__vuforia_manager_8cs_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__vuforia_manager_8cs_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link>.SetActive(<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00101"/>00101 
+<anchor xml:id="__vuforia_manager_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Target&#32;lost:&#32;&quot;</emphasis>&#32;+&#32;observer.TargetName);
+<anchor xml:id="__vuforia_manager_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__vuforia_manager_8cs_source_1l00104"/>00104 }
+</programlisting></section>

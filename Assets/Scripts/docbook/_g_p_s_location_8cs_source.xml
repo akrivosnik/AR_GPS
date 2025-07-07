@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__g_p_s_location_8cs_source" xml:lang="en-US">
+<title>GPSLocation.cs</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__g_p_s_location_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>System.Collections;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00003"/>00003 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00010"/><link linkend="_class_g_p_s_location">00010</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_g_p_s_location">GPSLocation</link>&#32;:&#32;MonoBehaviour
+<anchor xml:id="__g_p_s_location_8cs_source_1l00011"/>00011 {
+<anchor xml:id="__g_p_s_location_8cs_source_1l00016"/><link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">00016</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00017"/>00017 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00022"/><link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">00022</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00023"/>00023 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Start()
+<anchor xml:id="__g_p_s_location_8cs_source_1l00030"/>00030 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00031"/>00031 <emphasis role="preprocessor">#if&#32;UNITY_ANDROID</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Request&#32;location&#32;permission&#32;at&#32;runtime&#32;on&#32;Android</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation))
+<anchor xml:id="__g_p_s_location_8cs_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.FineLocation);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00037"/>00037 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;StartCoroutine(StartLocationService());
+<anchor xml:id="__g_p_s_location_8cs_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00040"/>00040 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;IEnumerator&#32;StartLocationService()
+<anchor xml:id="__g_p_s_location_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00048"/>00048 <emphasis role="preprocessor">#if&#32;UNITY_ANDROID</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Wait&#32;until&#32;the&#32;user&#32;responds&#32;to&#32;the&#32;permission&#32;dialog</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation))
+<anchor xml:id="__g_p_s_location_8cs_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Waiting&#32;for&#32;location&#32;permission...&quot;</emphasis>);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">null</emphasis>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00055"/>00055 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Check&#32;if&#32;user&#32;has&#32;location&#32;service&#32;enabled</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!Input.location.isEnabledByUser)
+<anchor xml:id="__g_p_s_location_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Location&#32;service&#32;is&#32;not&#32;enabled&#32;by&#32;user.&quot;</emphasis>);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00062"/>00062 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Start&#32;service&#32;before&#32;querying&#32;location</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Input.location.Start();
+<anchor xml:id="__g_p_s_location_8cs_source_1l00065"/>00065 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Wait&#32;until&#32;service&#32;initializes</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;maxWait&#32;=&#32;20;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(Input.location.status&#32;==&#32;LocationServiceStatus.Initializing&#32;&amp;&amp;&#32;maxWait&#32;&gt;&#32;0)
+<anchor xml:id="__g_p_s_location_8cs_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;WaitForSeconds(1);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;maxWait--;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00073"/>00073 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Service&#32;didn&apos;t&#32;initialize&#32;in&#32;time</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(maxWait&#32;&lt;&#32;1)
+<anchor xml:id="__g_p_s_location_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Timed&#32;out&quot;</emphasis>);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00080"/>00080 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Connection&#32;has&#32;failed</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(Input.location.status&#32;==&#32;LocationServiceStatus.Failed)
+<anchor xml:id="__g_p_s_location_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Unable&#32;to&#32;determine&#32;device&#32;location&quot;</emphasis>);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Access&#32;granted&#32;and&#32;location&#32;value&#32;could&#32;be&#32;retrieved</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link>&#32;=&#32;Input.location.lastData.latitude;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link>&#32;=&#32;Input.location.lastData.longitude;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Location:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link>&#32;+&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link>);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00095"/>00095 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Update()
+<anchor xml:id="__g_p_s_location_8cs_source_1l00102"/>00102 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optionally,&#32;print&#32;location&#32;every&#32;frame&#32;if&#32;available</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(Input.location.status&#32;==&#32;LocationServiceStatus.Running)
+<anchor xml:id="__g_p_s_location_8cs_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link>&#32;=&#32;Input.location.lastData.latitude;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link>&#32;=&#32;Input.location.lastData.longitude;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log(<emphasis role="stringliteral">&quot;Lat:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link>&#32;+&#32;<emphasis role="stringliteral">&quot;&#32;Lon:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link>);
+<anchor xml:id="__g_p_s_location_8cs_source_1l00109"/>00109 
+<anchor xml:id="__g_p_s_location_8cs_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Update&#32;GameManager&apos;s&#32;lat/lon&#32;if&#32;instance&#32;exists</emphasis>
+<anchor xml:id="__g_p_s_location_8cs_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(GameManager.Instance&#32;!=&#32;<emphasis role="keyword">null</emphasis>)
+<anchor xml:id="__g_p_s_location_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_p_s_location_8cs_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;GameManager.Instance.currentLatitude&#32;=&#32;<link linkend="_class_g_p_s_location_1a84c0c3cd177b3417e6a7b3f4200cff52">latitude</link>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;GameManager.Instance.currentLongitude&#32;=&#32;<link linkend="_class_g_p_s_location_1a9f2ec327fcedac3275427ce7c4aecccf">longitude</link>;
+<anchor xml:id="__g_p_s_location_8cs_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00117"/>00117 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_p_s_location_8cs_source_1l00118"/>00118 }
+</programlisting></section>

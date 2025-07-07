@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__geocode_address_8cs_source" xml:lang="en-US">
+<title>GeocodeAddress.cs</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__geocode_address_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__geocode_address_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>UnityEngine.Networking;
+<anchor xml:id="__geocode_address_8cs_source_1l00003"/>00003 <emphasis role="keyword">using&#32;</emphasis>System.Collections;
+<anchor xml:id="__geocode_address_8cs_source_1l00004"/>00004 <emphasis role="keyword">using&#32;</emphasis>UnityEditor;
+<anchor xml:id="__geocode_address_8cs_source_1l00005"/>00005 
+<anchor xml:id="__geocode_address_8cs_source_1l00012"/><link linkend="_class_geocode_address">00012</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_geocode_address">GeocodeAddress</link>&#32;:&#32;MonoBehaviour
+<anchor xml:id="__geocode_address_8cs_source_1l00013"/>00013 {
+<anchor xml:id="__geocode_address_8cs_source_1l00017"/>00017 &#32;&#32;&#32;&#32;[HideInInspector]
+<anchor xml:id="__geocode_address_8cs_source_1l00018"/><link linkend="_class_geocode_address_1ae7f59a6fba8883eae5cbb5b60e3ddb85">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_geocode_address_1ae7f59a6fba8883eae5cbb5b60e3ddb85">addressInput</link>&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="__geocode_address_8cs_source_1l00023"/>00023 &#32;&#32;&#32;&#32;[HideInInspector]
+<anchor xml:id="__geocode_address_8cs_source_1l00024"/><link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">resultText</link>&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="__geocode_address_8cs_source_1l00025"/>00025 
+<anchor xml:id="__geocode_address_8cs_source_1l00030"/><link linkend="_class_geocode_address_1a9cd4ee0df93e38a629a98a8b12fc061e">00030</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_geocode_address_1a9cd4ee0df93e38a629a98a8b12fc061e">latitude</link>;
+<anchor xml:id="__geocode_address_8cs_source_1l00035"/><link linkend="_class_geocode_address_1acb893907edba8db4a433e20e5ea5c01e">00035</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_geocode_address_1acb893907edba8db4a433e20e5ea5c01e">longitude</link>;
+<anchor xml:id="__geocode_address_8cs_source_1l00036"/>00036 
+<anchor xml:id="__geocode_address_8cs_source_1l00042"/><link linkend="_class_geocode_address_1a6dca4c599f18015f6adc7e0bda06ef47">00042</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_geocode_address_1a6dca4c599f18015f6adc7e0bda06ef47">SearchAddress</link>(<emphasis role="keywordtype">string</emphasis>&#32;address)
+<anchor xml:id="__geocode_address_8cs_source_1l00043"/>00043 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<emphasis role="keywordtype">string</emphasis>.IsNullOrEmpty(address))
+<anchor xml:id="__geocode_address_8cs_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;StartCoroutine(GetCoordinatesFromAddress(address));
+<anchor xml:id="__geocode_address_8cs_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00048"/>00048 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00049"/>00049 
+<anchor xml:id="__geocode_address_8cs_source_1l00057"/>00057 &#32;&#32;&#32;&#32;IEnumerator&#32;GetCoordinatesFromAddress(<emphasis role="keywordtype">string</emphasis>&#32;address)
+<anchor xml:id="__geocode_address_8cs_source_1l00058"/>00058 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">string</emphasis>&#32;url&#32;=&#32;$<emphasis role="stringliteral">&quot;https://nominatim.openstreetmap.org/search?q={UnityWebRequest.EscapeURL(address)}&amp;format=json&quot;</emphasis>;
+<anchor xml:id="__geocode_address_8cs_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;UnityWebRequest&#32;request&#32;=&#32;UnityWebRequest.Get(url);
+<anchor xml:id="__geocode_address_8cs_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;request.SetRequestHeader(<emphasis role="stringliteral">&quot;User-Agent&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;UnityGeocodeTest/1.0&#32;(nikosakr99@gmail.com)&quot;</emphasis>);&#32;<emphasis role="comment">//&#32;Replace&#32;with&#32;your&#32;email</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00062"/>00062 
+<anchor xml:id="__geocode_address_8cs_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;<emphasis role="keywordflow">return</emphasis>&#32;request.SendWebRequest();
+<anchor xml:id="__geocode_address_8cs_source_1l00064"/>00064 
+<anchor xml:id="__geocode_address_8cs_source_1l00065"/>00065 <emphasis role="preprocessor">#if&#32;UNITY_2020_1_OR_NEWER</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(request.result&#32;!=&#32;UnityWebRequest.Result.Success)
+<anchor xml:id="__geocode_address_8cs_source_1l00067"/>00067 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(request.isNetworkError&#32;||&#32;request.isHttpError)
+<anchor xml:id="__geocode_address_8cs_source_1l00069"/>00069 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.LogError(<emphasis role="stringliteral">&quot;Request&#32;error:&#32;&quot;</emphasis>&#32;+&#32;request.error);
+<anchor xml:id="__geocode_address_8cs_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">resultText</link>&#32;=&#32;<emphasis role="stringliteral">&quot;Error:&#32;&quot;</emphasis>&#32;+&#32;request.error;
+<anchor xml:id="__geocode_address_8cs_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">string</emphasis>&#32;json&#32;=&#32;request.downloadHandler.text;
+<anchor xml:id="__geocode_address_8cs_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1_1_geocode_result">GeocodeResult</link>[]&#32;results&#32;=&#32;JsonHelper.FromJson&lt;<link linkend="_class_geocode_address_1_1_geocode_result">GeocodeResult</link>&gt;(json);
+<anchor xml:id="__geocode_address_8cs_source_1l00078"/>00078 
+<anchor xml:id="__geocode_address_8cs_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(results&#32;!=&#32;<emphasis role="keyword">null</emphasis>&#32;&amp;&amp;&#32;results.Length&#32;&gt;&#32;0)
+<anchor xml:id="__geocode_address_8cs_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;lat&#32;=&#32;<emphasis role="keywordtype">float</emphasis>.Parse(results[0].lat);
+<anchor xml:id="__geocode_address_8cs_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;lon&#32;=&#32;<emphasis role="keywordtype">float</emphasis>.Parse(results[0].lon);
+<anchor xml:id="__geocode_address_8cs_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1a9cd4ee0df93e38a629a98a8b12fc061e">latitude</link>&#32;=&#32;lat;
+<anchor xml:id="__geocode_address_8cs_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1acb893907edba8db4a433e20e5ea5c01e">longitude</link>&#32;=&#32;lon;
+<anchor xml:id="__geocode_address_8cs_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">resultText</link>&#32;=&#32;$<emphasis role="stringliteral">&quot;Lat:&#32;{lat},&#32;Lon:&#32;{lon}&quot;</emphasis>;
+<anchor xml:id="__geocode_address_8cs_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug.Log($<emphasis role="stringliteral">&quot;Lat:&#32;{lat},&#32;Lon:&#32;{lon}&quot;</emphasis>);
+<anchor xml:id="__geocode_address_8cs_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">resultText</link>&#32;=&#32;<emphasis role="stringliteral">&quot;No&#32;results&#32;found.&quot;</emphasis>;
+<anchor xml:id="__geocode_address_8cs_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1a9cd4ee0df93e38a629a98a8b12fc061e">latitude</link>&#32;=&#32;0f;
+<anchor xml:id="__geocode_address_8cs_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_geocode_address_1acb893907edba8db4a433e20e5ea5c01e">longitude</link>&#32;=&#32;0f;
+<anchor xml:id="__geocode_address_8cs_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00095"/>00095 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00096"/>00096 
+<anchor xml:id="__geocode_address_8cs_source_1l00101"/>00101 &#32;&#32;&#32;&#32;[System.Serializable]
+<anchor xml:id="__geocode_address_8cs_source_1l00102"/><link linkend="_class_geocode_address_1_1_geocode_result">00102</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_geocode_address_1_1_geocode_result">GeocodeResult</link>
+<anchor xml:id="__geocode_address_8cs_source_1l00103"/>00103 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00107"/><link linkend="_class_geocode_address_1_1_geocode_result_1aa59414a7ced535c78e92ab452cae675f">00107</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_geocode_address_1_1_geocode_result_1aa59414a7ced535c78e92ab452cae675f">lat</link>;
+<anchor xml:id="__geocode_address_8cs_source_1l00111"/><link linkend="_class_geocode_address_1_1_geocode_result_1aecb360166804a7799660ab68a2fabde1">00111</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_geocode_address_1_1_geocode_result_1aecb360166804a7799660ab68a2fabde1">lon</link>;
+<anchor xml:id="__geocode_address_8cs_source_1l00112"/>00112 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00113"/>00113 
+<anchor xml:id="__geocode_address_8cs_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>JsonHelper
+<anchor xml:id="__geocode_address_8cs_source_1l00119"/>00119 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;T[]&#32;FromJson&lt;T&gt;(<emphasis role="keywordtype">string</emphasis>&#32;json)
+<anchor xml:id="__geocode_address_8cs_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">string</emphasis>&#32;wrapped&#32;=&#32;<emphasis role="stringliteral">&quot;{\&quot;array\&quot;:&quot;</emphasis>&#32;+&#32;json&#32;+&#32;<emphasis role="stringliteral">&quot;}&quot;</emphasis>;
+<anchor xml:id="__geocode_address_8cs_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Wrapper&lt;T&gt;&#32;wrapper&#32;=&#32;JsonUtility.FromJson&lt;Wrapper&lt;T&gt;&gt;(wrapped);
+<anchor xml:id="__geocode_address_8cs_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;wrapper.array;
+<anchor xml:id="__geocode_address_8cs_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00133"/>00133 
+<anchor xml:id="__geocode_address_8cs_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;[System.Serializable]
+<anchor xml:id="__geocode_address_8cs_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>Wrapper&lt;T&gt;
+<anchor xml:id="__geocode_address_8cs_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;T[]&#32;array;
+<anchor xml:id="__geocode_address_8cs_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00139"/>00139 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00140"/>00140 }
+<anchor xml:id="__geocode_address_8cs_source_1l00141"/>00141 
+<anchor xml:id="__geocode_address_8cs_source_1l00142"/>00142 <emphasis role="comment">//&#32;Custom&#32;Editor&#32;for&#32;GeocodeAddress</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00143"/>00143 <emphasis role="preprocessor">#if&#32;UNITY_EDITOR</emphasis>
+<anchor xml:id="__geocode_address_8cs_source_1l00150"/>00150 [CustomEditor(typeof(<link linkend="_class_geocode_address">GeocodeAddress</link>))]
+<anchor xml:id="__geocode_address_8cs_source_1l00151"/>00151 <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis>GeocodeAddressEditor&#32;:&#32;Editor
+<anchor xml:id="__geocode_address_8cs_source_1l00152"/>00152 {
+<anchor xml:id="__geocode_address_8cs_source_1l00157"/>00157 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">override</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;OnInspectorGUI()
+<anchor xml:id="__geocode_address_8cs_source_1l00158"/>00158 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;GeocodeAddress&#32;script&#32;=&#32;(GeocodeAddress)target;
+<anchor xml:id="__geocode_address_8cs_source_1l00160"/>00160 
+<anchor xml:id="__geocode_address_8cs_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EditorGUILayout.LabelField(<emphasis role="stringliteral">&quot;Geocode&#32;Address&#32;Tester&quot;</emphasis>,&#32;EditorStyles.boldLabel);
+<anchor xml:id="__geocode_address_8cs_source_1l00162"/>00162 
+<anchor xml:id="__geocode_address_8cs_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;script.addressInput&#32;=&#32;EditorGUILayout.TextField(<emphasis role="stringliteral">&quot;Address&quot;</emphasis>,&#32;script.<link linkend="_class_geocode_address_1ae7f59a6fba8883eae5cbb5b60e3ddb85">addressInput</link>);
+<anchor xml:id="__geocode_address_8cs_source_1l00164"/>00164 
+<anchor xml:id="__geocode_address_8cs_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(GUILayout.Button(<emphasis role="stringliteral">&quot;Search&quot;</emphasis>))
+<anchor xml:id="__geocode_address_8cs_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;script.<link linkend="_class_geocode_address_1a6dca4c599f18015f6adc7e0bda06ef47">SearchAddress</link>(script.<link linkend="_class_geocode_address_1ae7f59a6fba8883eae5cbb5b60e3ddb85">addressInput</link>);
+<anchor xml:id="__geocode_address_8cs_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00169"/>00169 
+<anchor xml:id="__geocode_address_8cs_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EditorGUILayout.Space();
+<anchor xml:id="__geocode_address_8cs_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EditorGUILayout.LabelField(<emphasis role="stringliteral">&quot;Result:&quot;</emphasis>);
+<anchor xml:id="__geocode_address_8cs_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EditorGUILayout.HelpBox(script.<link linkend="_class_geocode_address_1a47cf8e035518546db8db6b35408e0432">resultText</link>,&#32;MessageType.None);
+<anchor xml:id="__geocode_address_8cs_source_1l00173"/>00173 
+<anchor xml:id="__geocode_address_8cs_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(GUI.changed)
+<anchor xml:id="__geocode_address_8cs_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__geocode_address_8cs_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EditorUtility.SetDirty(target);
+<anchor xml:id="__geocode_address_8cs_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00178"/>00178 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__geocode_address_8cs_source_1l00179"/>00179 }
+<anchor xml:id="__geocode_address_8cs_source_1l00180"/>00180 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

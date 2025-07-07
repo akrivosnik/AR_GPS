@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__place_ofinterest_8cs_source" xml:lang="en-US">
+<title>PlaceOfinterest.cs</title>
+<indexterm><primary>Data Classes/PlaceOfinterest.cs</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__place_ofinterest_8cs_source_1l00001"/>00001 <emphasis role="keyword">using&#32;</emphasis>System;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00002"/>00002 <emphasis role="keyword">using&#32;</emphasis>UnityEngine;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00003"/>00003 
+<anchor xml:id="__place_ofinterest_8cs_source_1l00010"/>00010 [Serializable]
+<anchor xml:id="__place_ofinterest_8cs_source_1l00011"/><link linkend="_class_place_ofinterest">00011</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_place_ofinterest">PlaceOfinterest</link>
+<anchor xml:id="__place_ofinterest_8cs_source_1l00012"/>00012 {
+<anchor xml:id="__place_ofinterest_8cs_source_1l00017"/><link linkend="_class_place_ofinterest_1a353e1743f3dccb5a48e40846807c0295">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_place_ofinterest_1a353e1743f3dccb5a48e40846807c0295">Name</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00022"/><link linkend="_class_place_ofinterest_1abba0bb2bb4e3ae5662e26992bd494652">00022</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_place_ofinterest_1abba0bb2bb4e3ae5662e26992bd494652">Description</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00027"/><link linkend="_class_place_ofinterest_1aeec3f90f5fe8ac91f96fec03735a23ef">00027</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">string</emphasis>&#32;<link linkend="_class_place_ofinterest_1aeec3f90f5fe8ac91f96fec03735a23ef">Address</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00032"/><link linkend="_class_place_ofinterest_1ad008b9219884d5e390ddc689dc70d3dd">00032</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_place_ofinterest_1ad008b9219884d5e390ddc689dc70d3dd">Latitude</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00037"/><link linkend="_class_place_ofinterest_1a73322afbb171355a8bb7ffe1da15b906">00037</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_place_ofinterest_1a73322afbb171355a8bb7ffe1da15b906">Longitude</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00042"/><link linkend="_class_place_ofinterest_1add749a776106f5a1c6653d9ba37f8dba">00042</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_place_ofinterest_1add749a776106f5a1c6653d9ba37f8dba">Height</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00047"/><link linkend="_class_place_ofinterest_1af84144cdb984aea27b56e9dcd57f6987">00047</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;Sprite&#32;<link linkend="_class_place_ofinterest_1af84144cdb984aea27b56e9dcd57f6987">Icon</link>;
+<anchor xml:id="__place_ofinterest_8cs_source_1l00048"/>00048 }
+</programlisting></section>

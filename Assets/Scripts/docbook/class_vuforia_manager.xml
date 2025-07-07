@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_vuforia_manager" xml:lang="en-US">
+<title>VuforiaManager Class Reference</title>
+<indexterm><primary>VuforiaManager</primary></indexterm>
+<para>
+
+<para>This MonoBehaviour manages the interaction between Vuforia image targets and the application&apos;s UI. It listens for Vuforia target detection and loss events, and controls the visibility of a UI panel that displays information about the detected target. The script demonstrates how to bridge AR tracking events with user interface elements, which is a common requirement in AR tourism and educational apps. </para>
+ 
+</para>
+<para>Inheritance diagram for VuforiaManager:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_vuforia_manager.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ImageTargetBehaviour <link linkend="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e">imageTargetBehaviour</link></para>
+
+<para>Reference to the Vuforia ImageTargetBehaviour component in the scene. This component is responsible for detecting and tracking a specific image target in the real world. </para>
+</listitem>
+            <listitem><para>GameObject <link linkend="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802">targetInfoPanel</link></para>
+
+<para>Reference to the GameObject representing the UI panel that displays information about the currently detected target. This panel is shown or hidden based on the target&apos;s tracking status. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This MonoBehaviour manages the interaction between Vuforia image targets and the application&apos;s UI. It listens for Vuforia target detection and loss events, and controls the visibility of a UI panel that displays information about the detected target. The script demonstrates how to bridge AR tracking events with user interface elements, which is a common requirement in AR tourism and educational apps. </para>
+<para>
+Definition at line <link linkend="__vuforia_manager_8cs_source_1l00009">9</link> of file <link linkend="__vuforia_manager_8cs_source">VuforiaManager.cs</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_vuforia_manager_1a0fadada57b3139cbffc7a020855e5c9e"/><section>
+    <title>imageTargetBehaviour</title>
+<indexterm><primary>imageTargetBehaviour</primary><secondary>VuforiaManager</secondary></indexterm>
+<indexterm><primary>VuforiaManager</primary><secondary>imageTargetBehaviour</secondary></indexterm>
+<para><computeroutput>ImageTargetBehaviour VuforiaManager.imageTargetBehaviour</computeroutput></para><para>
+
+<para>Reference to the Vuforia ImageTargetBehaviour component in the scene. This component is responsible for detecting and tracking a specific image target in the real world. </para>
+</para>
+<para>
+Definition at line <link linkend="__vuforia_manager_8cs_source_1l00015">15</link> of file <link linkend="__vuforia_manager_8cs_source">VuforiaManager.cs</link>.</para>
+</section>
+<anchor xml:id="_class_vuforia_manager_1a9f29e060da804cb3991ea08a747f9802"/><section>
+    <title>targetInfoPanel</title>
+<indexterm><primary>targetInfoPanel</primary><secondary>VuforiaManager</secondary></indexterm>
+<indexterm><primary>VuforiaManager</primary><secondary>targetInfoPanel</secondary></indexterm>
+<para><computeroutput>GameObject VuforiaManager.targetInfoPanel</computeroutput></para><para>
+
+<para>Reference to the GameObject representing the UI panel that displays information about the currently detected target. This panel is shown or hidden based on the target&apos;s tracking status. </para>
+</para>
+<para>
+Definition at line <link linkend="__vuforia_manager_8cs_source_1l00020">20</link> of file <link linkend="__vuforia_manager_8cs_source">VuforiaManager.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__vuforia_manager_8cs">VuforiaManager.cs</link></section>
+</section>

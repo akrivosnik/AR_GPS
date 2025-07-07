@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__g_p_s_location_8cs" xml:lang="en-US">
+<title>GPSLocation.cs File Reference</title>
+<indexterm><primary>GPSLocation.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_g_p_s_location">GPSLocation</link></para>
+
+<para>This MonoBehaviour is responsible for accessing the device&apos;s GPS hardware and retrieving the current geographic coordinates (latitude and longitude). It requests location permissions at runtime (especially on Android), starts the location service, and continuously updates the coordinates. The script also synchronizes the retrieved GPS data with the <link linkend="_class_game_manager">GameManager</link>, enabling location-based logic such as proximity detection and AR content placement. This component is essential for any AR application that relies on real-world positioning, such as tourism guides or location-based games. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

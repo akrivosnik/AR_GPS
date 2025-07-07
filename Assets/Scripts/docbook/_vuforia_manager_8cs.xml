@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__vuforia_manager_8cs" xml:lang="en-US">
+<title>VuforiaManager.cs File Reference</title>
+<indexterm><primary>VuforiaManager.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_vuforia_manager">VuforiaManager</link></para>
+
+<para>This MonoBehaviour manages the interaction between Vuforia image targets and the application&apos;s UI. It listens for Vuforia target detection and loss events, and controls the visibility of a UI panel that displays information about the detected target. The script demonstrates how to bridge AR tracking events with user interface elements, which is a common requirement in AR tourism and educational apps. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

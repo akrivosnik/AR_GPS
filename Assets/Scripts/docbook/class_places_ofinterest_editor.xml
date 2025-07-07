@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_places_ofinterest_editor" xml:lang="en-US">
+<title>PlacesOfinterestEditor Class Reference</title>
+<indexterm><primary>PlacesOfinterestEditor</primary></indexterm>
+<para>
+
+<para>Custom Unity Editor inspector for the &quot;PlacesOfinterest&quot; ScriptableObject. This editor extension provides a user-friendly interface within the Unity Editor for managing a collection of places of interest. It allows designers and developers to add, edit, remove, and search for places directly from the Inspector window. The editor supports editing all properties of each place, including name, description, address, latitude, longitude, height, and an associated icon. This tool streamlines the workflow for content creation and data management in location-based AR applications. </para>
+ 
+</para>
+<para>Inheritance diagram for PlacesOfinterestEditor:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_places_ofinterest_editor.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>override void <link linkend="_class_places_ofinterest_editor_1aae5ab935e94af07d8349752e7c4e4d52">OnInspectorGUI</link> ()</para>
+
+<para>Overrides the default Unity inspector GUI for the &quot;PlacesOfinterest&quot; ScriptableObject. Provides a comprehensive interface for viewing, editing, adding, and searching places of interest. The inspector displays all existing places in a scrollable list, each with editable fields for all properties. Users can add new places by filling out the provided form and clicking the &quot;Add Place&quot; button. The search section allows users to quickly locate a place by name and view its details. All changes are recorded for undo functionality and marked as dirty for proper asset saving. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Custom Unity Editor inspector for the &quot;PlacesOfinterest&quot; ScriptableObject. This editor extension provides a user-friendly interface within the Unity Editor for managing a collection of places of interest. It allows designers and developers to add, edit, remove, and search for places directly from the Inspector window. The editor supports editing all properties of each place, including name, description, address, latitude, longitude, height, and an associated icon. This tool streamlines the workflow for content creation and data management in location-based AR applications. </para>
+<para>
+Definition at line <link linkend="__places_ofinterest_editor_8cs_source_1l00015">15</link> of file <link linkend="__places_ofinterest_editor_8cs_source">PlacesOfinterestEditor.cs</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_places_ofinterest_editor_1aae5ab935e94af07d8349752e7c4e4d52"/><section>
+    <title>OnInspectorGUI()</title>
+<indexterm><primary>OnInspectorGUI</primary><secondary>PlacesOfinterestEditor</secondary></indexterm>
+<indexterm><primary>PlacesOfinterestEditor</primary><secondary>OnInspectorGUI</secondary></indexterm>
+<para><computeroutput>override void PlacesOfinterestEditor.OnInspectorGUI ( )</computeroutput></para><para>
+
+<para>Overrides the default Unity inspector GUI for the &quot;PlacesOfinterest&quot; ScriptableObject. Provides a comprehensive interface for viewing, editing, adding, and searching places of interest. The inspector displays all existing places in a scrollable list, each with editable fields for all properties. Users can add new places by filling out the provided form and clicking the &quot;Add Place&quot; button. The search section allows users to quickly locate a place by name and view its details. All changes are recorded for undo functionality and marked as dirty for proper asset saving. </para>
+</para>
+<para>
+Definition at line <link linkend="__places_ofinterest_editor_8cs_source_1l00125">125</link> of file <link linkend="__places_ofinterest_editor_8cs_source">PlacesOfinterestEditor.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Data Classes/Editor/<link linkend="__places_ofinterest_editor_8cs">PlacesOfinterestEditor.cs</link></section>
+</section>

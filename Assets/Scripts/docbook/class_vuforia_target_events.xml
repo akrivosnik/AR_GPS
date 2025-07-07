@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_vuforia_target_events" xml:lang="en-US">
+<title>VuforiaTargetEvents Class Reference</title>
+<indexterm><primary>VuforiaTargetEvents</primary></indexterm>
+<para>
+
+<para>This MonoBehaviour acts as an event dispatcher for Vuforia target status changes. It listens for changes in the tracking status of Vuforia ObserverBehaviours (such as Image Targets or Model Targets) and exposes these changes as C# events that other scripts can subscribe to. This enables decoupled and modular handling of AR target detection, loss, and updates, which is essential for building interactive AR experiences where UI or logic must respond to target visibility. </para>
+ 
+</para>
+<para>Inheritance diagram for VuforiaTargetEvents:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_vuforia_target_events.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Events    </title>
+        <itemizedlist>
+            <listitem><para>Action&lt; ObserverBehaviour &gt; <link linkend="_class_vuforia_target_events_1abf0fc0c7b8fce37304d8f9641d30da11">OnTargetFound</link></para>
+
+<para>Event triggered when a Vuforia target is found (i.e., when tracking status transitions from NO_POSE to TRACKED or EXTENDED_TRACKED). Subscribers can use this event to activate AR content or UI when a target becomes visible. </para>
+</listitem>
+            <listitem><para>Action&lt; ObserverBehaviour &gt; <link linkend="_class_vuforia_target_events_1af8c2a5303bb9b9e354786391f2b43126">OnTargetLost</link></para>
+
+<para>Event triggered when a Vuforia target is lost (i.e., when tracking status transitions from TRACKED/EXTENDED_TRACKED to NO_POSE). Subscribers can use this event to hide AR content or UI when a target is no longer visible. </para>
+</listitem>
+            <listitem><para>Action&lt; ObserverBehaviour, TargetStatus &gt; <link linkend="_class_vuforia_target_events_1a0b2fbca103dcc52bd25508fdf8264009">OnTargetUpdated</link></para>
+
+<para>Event triggered whenever a Vuforia target&apos;s status is updated, regardless of the specific transition. This can be used for continuous feedback or analytics. </para>
+</listitem>
+            <listitem><para>Action&lt; ObserverBehaviour, TargetStatus, TargetStatus &gt; <link linkend="_class_vuforia_target_events_1a2933670120b112edd4f4d7b74224449d">OnTargetStatusChanged</link></para>
+
+<para>Event triggered on any change in the target&apos;s status, providing both the previous and new status. This allows for detailed tracking of status transitions for debugging or advanced logic. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This MonoBehaviour acts as an event dispatcher for Vuforia target status changes. It listens for changes in the tracking status of Vuforia ObserverBehaviours (such as Image Targets or Model Targets) and exposes these changes as C# events that other scripts can subscribe to. This enables decoupled and modular handling of AR target detection, loss, and updates, which is essential for building interactive AR experiences where UI or logic must respond to target visibility. </para>
+<para>
+Definition at line <link linkend="__vuforia_target_events_8cs_source_1l00013">13</link> of file <link linkend="__vuforia_target_events_8cs_source">VuforiaTargetEvents.cs</link>.</para>
+</section>
+<section>
+<title>Event Documentation</title>
+<anchor xml:id="_class_vuforia_target_events_1abf0fc0c7b8fce37304d8f9641d30da11"/><section>
+    <title>OnTargetFound</title>
+<indexterm><primary>OnTargetFound</primary><secondary>VuforiaTargetEvents</secondary></indexterm>
+<indexterm><primary>VuforiaTargetEvents</primary><secondary>OnTargetFound</secondary></indexterm>
+<para><computeroutput>Action&lt;ObserverBehaviour&gt; VuforiaTargetEvents.OnTargetFound</computeroutput></para><para>
+
+<para>Event triggered when a Vuforia target is found (i.e., when tracking status transitions from NO_POSE to TRACKED or EXTENDED_TRACKED). Subscribers can use this event to activate AR content or UI when a target becomes visible. </para>
+</para>
+<para>
+Definition at line <link linkend="__vuforia_target_events_8cs_source_1l00019">19</link> of file <link linkend="__vuforia_target_events_8cs_source">VuforiaTargetEvents.cs</link>.</para>
+</section>
+<anchor xml:id="_class_vuforia_target_events_1af8c2a5303bb9b9e354786391f2b43126"/><section>
+    <title>OnTargetLost</title>
+<indexterm><primary>OnTargetLost</primary><secondary>VuforiaTargetEvents</secondary></indexterm>
+<indexterm><primary>VuforiaTargetEvents</primary><secondary>OnTargetLost</secondary></indexterm>
+<para><computeroutput>Action&lt;ObserverBehaviour&gt; VuforiaTargetEvents.OnTargetLost</computeroutput></para><para>
+
+<para>Event triggered when a Vuforia target is lost (i.e., when tracking status transitions from TRACKED/EXTENDED_TRACKED to NO_POSE). Subscribers can use this event to hide AR content or UI when a target is no longer visible. </para>
+</para>
+<para>
+Definition at line <link linkend="__vuforia_target_events_8cs_source_1l00024">24</link> of file <link linkend="__vuforia_target_events_8cs_source">VuforiaTargetEvents.cs</link>.</para>
+</section>
+<anchor xml:id="_class_vuforia_target_events_1a2933670120b112edd4f4d7b74224449d"/><section>
+    <title>OnTargetStatusChanged</title>
+<indexterm><primary>OnTargetStatusChanged</primary><secondary>VuforiaTargetEvents</secondary></indexterm>
+<indexterm><primary>VuforiaTargetEvents</primary><secondary>OnTargetStatusChanged</secondary></indexterm>
+<para><computeroutput>Action&lt;ObserverBehaviour, TargetStatus, TargetStatus&gt; VuforiaTargetEvents.OnTargetStatusChanged</computeroutput></para><para>
+
+<para>Event triggered on any change in the target&apos;s status, providing both the previous and new status. This allows for detailed tracking of status transitions for debugging or advanced logic. </para>
+</para>
+<para>
+Definition at line <link linkend="__vuforia_target_events_8cs_source_1l00034">34</link> of file <link linkend="__vuforia_target_events_8cs_source">VuforiaTargetEvents.cs</link>.</para>
+</section>
+<anchor xml:id="_class_vuforia_target_events_1a0b2fbca103dcc52bd25508fdf8264009"/><section>
+    <title>OnTargetUpdated</title>
+<indexterm><primary>OnTargetUpdated</primary><secondary>VuforiaTargetEvents</secondary></indexterm>
+<indexterm><primary>VuforiaTargetEvents</primary><secondary>OnTargetUpdated</secondary></indexterm>
+<para><computeroutput>Action&lt;ObserverBehaviour, TargetStatus&gt; VuforiaTargetEvents.OnTargetUpdated</computeroutput></para><para>
+
+<para>Event triggered whenever a Vuforia target&apos;s status is updated, regardless of the specific transition. This can be used for continuous feedback or analytics. </para>
+</para>
+<para>
+Definition at line <link linkend="__vuforia_target_events_8cs_source_1l00029">29</link> of file <link linkend="__vuforia_target_events_8cs_source">VuforiaTargetEvents.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__vuforia_target_events_8cs">VuforiaTargetEvents.cs</link></section>
+</section>

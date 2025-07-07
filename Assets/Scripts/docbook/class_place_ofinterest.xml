@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_place_ofinterest" xml:lang="en-US">
+<title>PlaceOfinterest Class Reference</title>
+<indexterm><primary>PlaceOfinterest</primary></indexterm>
+<para>
+
+<para>A serializable data class that encapsulates all relevant information about a single place of interest. This class is intended to represent real-world locations in AR tourism or mapping applications, providing both geospatial coordinates and descriptive metadata for each location. Each instance can be stored in a &quot;PlacesOfinterest&quot; ScriptableObject and referenced at runtime. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_place_ofinterest_1a353e1743f3dccb5a48e40846807c0295">Name</link></para>
+
+<para>The human-readable name of the place of interest. This is used for display in the UI and as a unique identifier for searching and referencing. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_place_ofinterest_1abba0bb2bb4e3ae5662e26992bd494652">Description</link></para>
+
+<para>A textual description providing additional information about the place. This can include historical context, significance, or visitor information. </para>
+</listitem>
+            <listitem><para>string <link linkend="_class_place_ofinterest_1aeec3f90f5fe8ac91f96fec03735a23ef">Address</link></para>
+
+<para>The physical or postal address of the place, if available. This field can be used for geocoding to obtain latitude and longitude coordinates. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_place_ofinterest_1ad008b9219884d5e390ddc689dc70d3dd">Latitude</link></para>
+
+<para>The latitude coordinate (in decimal degrees) of the place&apos;s geographic location. Used for positioning in AR scenes and proximity calculations. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_place_ofinterest_1a73322afbb171355a8bb7ffe1da15b906">Longitude</link></para>
+
+<para>The longitude coordinate (in decimal degrees) of the place&apos;s geographic location. Used for positioning in AR scenes and proximity calculations. </para>
+</listitem>
+            <listitem><para>float <link linkend="_class_place_ofinterest_1add749a776106f5a1c6653d9ba37f8dba">Height</link></para>
+
+<para>The height or altitude (in meters) above sea level for the place. This value is used for accurate 3D placement in AR or mapping environments. </para>
+</listitem>
+            <listitem><para>Sprite <link linkend="_class_place_ofinterest_1af84144cdb984aea27b56e9dcd57f6987">Icon</link></para>
+
+<para>A visual icon or sprite representing the place of interest. This can be displayed in the UI or on AR markers to help users identify the location. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>A serializable data class that encapsulates all relevant information about a single place of interest. This class is intended to represent real-world locations in AR tourism or mapping applications, providing both geospatial coordinates and descriptive metadata for each location. Each instance can be stored in a &quot;PlacesOfinterest&quot; ScriptableObject and referenced at runtime. </para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00011">11</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_place_ofinterest_1aeec3f90f5fe8ac91f96fec03735a23ef"/><section>
+    <title>Address</title>
+<indexterm><primary>Address</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Address</secondary></indexterm>
+<para><computeroutput>string PlaceOfinterest.Address</computeroutput></para><para>
+
+<para>The physical or postal address of the place, if available. This field can be used for geocoding to obtain latitude and longitude coordinates. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00027">27</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_place_ofinterest_1abba0bb2bb4e3ae5662e26992bd494652"/><section>
+    <title>Description</title>
+<indexterm><primary>Description</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Description</secondary></indexterm>
+<para><computeroutput>string PlaceOfinterest.Description</computeroutput></para><para>
+
+<para>A textual description providing additional information about the place. This can include historical context, significance, or visitor information. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00022">22</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_place_ofinterest_1add749a776106f5a1c6653d9ba37f8dba"/><section>
+    <title>Height</title>
+<indexterm><primary>Height</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Height</secondary></indexterm>
+<para><computeroutput>float PlaceOfinterest.Height</computeroutput></para><para>
+
+<para>The height or altitude (in meters) above sea level for the place. This value is used for accurate 3D placement in AR or mapping environments. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00042">42</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_place_ofinterest_1af84144cdb984aea27b56e9dcd57f6987"/><section>
+    <title>Icon</title>
+<indexterm><primary>Icon</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Icon</secondary></indexterm>
+<para><computeroutput>Sprite PlaceOfinterest.Icon</computeroutput></para><para>
+
+<para>A visual icon or sprite representing the place of interest. This can be displayed in the UI or on AR markers to help users identify the location. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00047">47</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_place_ofinterest_1ad008b9219884d5e390ddc689dc70d3dd"/><section>
+    <title>Latitude</title>
+<indexterm><primary>Latitude</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Latitude</secondary></indexterm>
+<para><computeroutput>float PlaceOfinterest.Latitude</computeroutput></para><para>
+
+<para>The latitude coordinate (in decimal degrees) of the place&apos;s geographic location. Used for positioning in AR scenes and proximity calculations. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00032">32</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_place_ofinterest_1a73322afbb171355a8bb7ffe1da15b906"/><section>
+    <title>Longitude</title>
+<indexterm><primary>Longitude</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Longitude</secondary></indexterm>
+<para><computeroutput>float PlaceOfinterest.Longitude</computeroutput></para><para>
+
+<para>The longitude coordinate (in decimal degrees) of the place&apos;s geographic location. Used for positioning in AR scenes and proximity calculations. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00037">37</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<anchor xml:id="_class_place_ofinterest_1a353e1743f3dccb5a48e40846807c0295"/><section>
+    <title>Name</title>
+<indexterm><primary>Name</primary><secondary>PlaceOfinterest</secondary></indexterm>
+<indexterm><primary>PlaceOfinterest</primary><secondary>Name</secondary></indexterm>
+<para><computeroutput>string PlaceOfinterest.Name</computeroutput></para><para>
+
+<para>The human-readable name of the place of interest. This is used for display in the UI and as a unique identifier for searching and referencing. </para>
+</para>
+<para>
+Definition at line <link linkend="__place_ofinterest_8cs_source_1l00017">17</link> of file <link linkend="__place_ofinterest_8cs_source">PlaceOfinterest.cs</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Data Classes/<link linkend="__place_ofinterest_8cs">PlaceOfinterest.cs</link></section>
+</section>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__a_r_u_i_8cs" xml:lang="en-US">
+<title>ARUI.cs File Reference</title>
+<indexterm><primary>ARUI.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_a_r_u_i">ARUI</link></para>
+
+<para>The <link linkend="_class_a_r_u_i">ARUI</link> MonoBehaviour manages user interface interactions specific to the AR experience. In particular, it handles the functionality of the Map button, allowing users to exit the AR scene and return to the main map or overview. This script demonstrates how to connect UI elements to application logic, enabling seamless transitions between AR and non-AR views in tourism or navigation apps. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>
